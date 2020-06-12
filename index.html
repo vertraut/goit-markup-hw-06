@@ -55,7 +55,7 @@
             эффективные решения<br />
             для вашего бизнеса
           </h1>
-          <a href="" class="button">Заказать услугу </a>
+          <button class="button" data-modal-open>Заказать услугу</button>
         </div>
       </section>
 
@@ -396,7 +396,10 @@
         <!-- подписка -->
         <div class="subscribe">
           <b>подписаться на рассылку</b>
-          <button class="button subscribe">Подписаться</button>
+          <form class="subscribe-form">
+            <input type="email" name="mail" placeholder="E-mail" />
+            <button class="button subscribe" type="submit">Подписаться</button>
+          </form>
         </div>
       </div>
       <!-- Копирайт -->
@@ -404,5 +407,67 @@
         <p lang="en" class="copyright">2020 | Developed by GoIT Students</p>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <form class="form js-speaker-form" autocomplete="off">
+          <b class="heading-form">Оставьте свои данные, мы вам перезвоним</b>
+
+          <div class="form-field form-user-name">
+            <input type="text" name="user-name" id="user-name" placeholder=" " />
+
+            <label for="user-name">Имя</label>
+            <svg class="form-icon">
+              <use href="./images/sprite.svg#form-name"></use>
+            </svg>
+          </div>
+
+          <div class="form-field form-tel">
+            <input type="tel" name="tel" id="tel" placeholder=" " />
+            <label for="tel">Телефон</label>
+            <svg class="form-icon">
+              <use href="./images/sprite.svg#form-phone"></use>
+            </svg>
+          </div>
+
+          <div class="form-field form-mail">
+            <input type="email" name="mail" id="mail" placeholder=" " />
+            <label for="mail">Почта</label>
+            <svg class="form-icon">
+              <use href="./images/sprite.svg#form-mail"></use>
+            </svg>
+          </div>
+
+          <div class="form-field">
+            <textarea name="comment" id="comment" cols="10" rows="10" placeholder=" "></textarea>
+            <label for="comment">Комментарий</label>
+          </div>
+          <div class="policy">
+            <input type="checkbox" name="policy" id="policy" />
+            <label for="policy">
+              Соглашаюсь с рассылкой и принимаю <a href="">Условия договора</a>
+            </label>
+          </div>
+
+          <button type="submit" class="button btn-submit">Отправить</button>
+          <button class="btn-close" data-modal-close>
+            <svg class="modal-close">
+              <use href="./images/sprite.svg#modal-close"></use>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+    <script>
+      (() => {
+        document.querySelector('.js-speaker-form').addEventListener('submit', e => {
+          e.preventDefault();
+
+          new FormData(e.currentTarget).forEach((value, name) => console.log(`${name}: ${value}`));
+
+          e.currentTarget.reset();
+        });
+      })();
+    </script>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
