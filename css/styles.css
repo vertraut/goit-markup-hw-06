@@ -829,6 +829,16 @@ section.portfolio {
   position: relative;
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
+}
+
+.form-field + .form-field {
+  margin-top: 28px;
+}
+ {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   margin-top: 28px;
 }
 
@@ -859,6 +869,8 @@ section.portfolio {
   display: flex;
   align-items: center;
   position: absolute;
+  top: 0;
+  left: 0;
   transform: translate(42px, 12px);
   font-size: 14px;
   line-height: 1.1428;
@@ -908,10 +920,32 @@ section.portfolio {
 }
 
 .policy label {
+  display: flex;
+  align-items: center;
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--primery-text-color);
+}
+
+.policy label::before {
+  content: '';
+  display: block;
+  margin-right: 8px;
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--dark-color);
+  background-image: url(./../images/icon_check.svg);
+  border-radius: 2px;
+  background-size: contain;
+  background-origin: border-box;
+  transition: background-color 250ms var(--cubic), border-color 250ms var(--cubic);
+}
+
+.policy input:checked + label::before {
+  border: 2px solid var(--accent-color);
+  /* border-color: inherit; */
+  background-color: var(--accent-color);
 }
 
 .policy a {
