@@ -933,6 +933,7 @@ section.portfolio {
   height: 15px;
   border: 2px solid var(--dark-color);
   background-image: url(./../images/icon_check.svg);
+  background-color: #ffffff;
   border-radius: 2px;
   background-size: contain;
   background-origin: border-box;
